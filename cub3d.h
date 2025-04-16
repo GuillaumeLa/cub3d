@@ -40,7 +40,7 @@ typedef struct s_config {
     t_decals decals;
 } t_config;
 
-int     parse_cub(char *filename , t_config *conf);
+int     parse_cub(char *filename);
 int     handle_decals(char *filename , t_config *conf);
 int     handle_rgb(int identifier , t_config *conf, char **rgb);
 int     handle_files(char *line , t_config *conf , int identifier);

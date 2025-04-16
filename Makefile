@@ -5,6 +5,7 @@ SRC = main.c \
 	  get_next_line_utils.c \
 	  decals.c \
 	  parse.c\
+	  struct.c\
 
 OBJ_DIR = objs
 LIBFT_DIR = includes/libft

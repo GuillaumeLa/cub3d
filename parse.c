@@ -43,13 +43,13 @@ int find_identifier(char *line)
 	return (0);
 }
 
-int parse_cub(char *filename , t_config *conf)
+int parse_cub(char *filename)
 {
+	
+	t_config *conf = s();
 	if (ft_strncmp(filename + ft_strlen(filename) - 4, ".cub\0", 5))
 		return (0);
 	if(!handle_decals(filename ,conf))
 		return (0);
-	// handle_map(get_nextline , conf);
-
 	return (1);
 }
