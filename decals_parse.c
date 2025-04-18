@@ -58,14 +58,14 @@ int handle_rgb(int identifier , t_config *conf, char **rgb)
 
 int handle_decals(char *filename , t_config *conf)
 {
-	int fd;
 	char *get_nextline;
 	int identifier;
+	int fd_decals;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+	fd_decals = open(filename, O_RDONLY);
+	if (fd_decals < 0)
 		return (0);
-	get_nextline = get_next_line(fd);
+	get_nextline = get_next_line(fd_decals);
 	while (get_nextline)
 	{
 		identifier = find_identifier(get_nextline);
@@ -76,9 +76,8 @@ int handle_decals(char *filename , t_config *conf)
 		}
 		else
 			break;
-		get_nextline = get_next_line(fd);
+		get_nextline = get_next_line(fd_decals);
 	}
 	free(get_nextline);
-	close(fd);
 	return 1;
 }

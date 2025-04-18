@@ -24,6 +24,12 @@ typedef struct s_color {
     int b;
 } t_color;
 
+typedef struct s_map {
+    int line;
+    int columns;
+    char **data;
+} t_map;
+
 typedef struct s_decals {
     t_texture north;
     t_texture south;
@@ -36,10 +42,10 @@ typedef struct s_decals {
 typedef struct s_config {
     void    *mlx;
     void    *win;
-    char    **map;
+    t_map    map;
     t_decals decals;
 } t_config;
-
+int     handle_map(char *filename);
 int     parse_cub(char *filename);
 int     handle_decals(char *filename , t_config *conf);
 int     handle_rgb(int identifier , t_config *conf, char **rgb);

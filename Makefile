@@ -3,7 +3,8 @@ NAME = cub3d
 SRC = main.c \
 	  get_next_line.c \
 	  get_next_line_utils.c \
-	  decals.c \
+	  decals_parse.c \
+	  map_parse.c \
 	  parse.c\
 	  struct.c\
 

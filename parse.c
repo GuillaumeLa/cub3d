@@ -45,9 +45,11 @@ int find_identifier(char *line)
 
 int parse_cub(char *filename)
 {
-	
 	t_config *conf = s();
+
 	if (ft_strncmp(filename + ft_strlen(filename) - 4, ".cub\0", 5))
+		return (0);
+	if(!handle_map(filename))
 		return (0);
 	if(!handle_decals(filename ,conf))
 		return (0);
