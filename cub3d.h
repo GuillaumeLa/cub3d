@@ -7,10 +7,25 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-typedef struct s_player {
-    int x;
-    int y;
-    char direction;
+# define WIDTH 800
+# define HEIGHT 600
+# define NAME "cub3d"
+# define COLOR 0xFF0000
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define L 65361
+# define R 65363
+
+typedef struct s_player
+{
+    double x;
+    double y;
+    double dir_x;//(1;0) si le joueur regarde a droite
+    double dir_y;//(0;-1) si le joueur regarde vers le haut
+    double plane_x;
+    double plane_y;
 } t_player;
 
 typedef struct s_texture {
@@ -39,12 +54,26 @@ typedef struct s_decals {
     t_color     ceiling_color;
 } t_decals;
 
+typedef struct s_keys
+{
+    int w;
+    int s;
+    int d;
+    int a;
+    int r;
+    int l;
+} t_keys;
+
 typedef struct s_config {
-    void    *mlx;
-    void    *win;
-    t_map    map;
-    t_decals decals;
+    void        *mlx;
+    void        *win;
+    t_map       map;
+    t_decals    decals;
+    t_player    p;
+    t_keys      k;
 } t_config;
+
+//parsing
 int     handle_map(char *filename);
 int     parse_cub(char *filename);
 int     handle_decals(char *filename , t_config *conf);
@@ -52,5 +81,24 @@ int     handle_rgb(int identifier , t_config *conf, char **rgb);
 int     handle_files(char *line , t_config *conf , int identifier);
 int     find_identifier(char *line);
 int     parse_identifier(char *line , int identifier ,t_config *conf);
+
+//deplacements
+void    key_w();
+void    key_s();
+void    key_a();
+void    key_d();
+void    key_R();
+void    key_L();
+
+//display
+void open_window();
+int close_window_cross();
+int close_window_echap(int touche);
+
+//raycasting
+int    raycasting();
+
+//utils
 t_config	*s(void);
+
 #endif
