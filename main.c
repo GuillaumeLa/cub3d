@@ -1,6 +1,16 @@
 #include "cub3d.h"
 #include "get_next_line.h"
 
+void	init_player()
+{
+	s()->p.X = 4.0;
+	s()->p.Y = 6.0;
+	s()->p.dirX = 1.0;
+	s()->p.dirY = 0.0;
+	s()->p.planeX = 0.0;
+	s()->p.planeY = 0.66;
+}
+
 int main(int argc , char *argv[])
 {
 	// if(argc != 2)
@@ -24,7 +34,7 @@ int main(int argc , char *argv[])
 	// free(s()->decals.south.path);
 	// free(s()->decals.west.path);
 	// free(s()->decals.east.path);
-	
+	init_player();
 	if (raycasting())
 		open_window();
 	(void)argv;

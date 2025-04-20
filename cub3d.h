@@ -6,26 +6,31 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
 
-# define WIDTH 800
-# define HEIGHT 600
+# define BOLD "\033[1m"
+# define RESET "\033[0m"
+
+# define WIDTH 640
+# define HEIGHT 480
 # define NAME "cub3d"
-# define COLOR 0xFF0000
+# define ECHAP 65307
 # define W 119
 # define A 97
 # define S 115
 # define D 100
 # define L 65361
 # define R 65363
+# define speed 0.1
 
 typedef struct s_player
 {
-    double x;
-    double y;
-    double dir_x;//(1;0) si le joueur regarde a droite
-    double dir_y;//(0;-1) si le joueur regarde vers le haut
-    double plane_x;
-    double plane_y;
+    double X;
+    double Y;
+    double dirX;//(1;0) si le joueur regarde a droite
+    double dirY;//(0;-1) si le joueur regarde vers le haut
+    double planeX;
+    double planeY;
 } t_player;
 
 typedef struct s_texture {
@@ -93,7 +98,7 @@ void    key_L();
 //display
 void open_window();
 int close_window_cross();
-int close_window_echap(int touche);
+int close_window_echap();
 
 //raycasting
 int    raycasting();

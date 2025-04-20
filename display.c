@@ -17,6 +17,8 @@ int key_press(int touche)
         s()->k.r = 1;
     else if (touche == L)
         s()->k.l = 1;
+    else if (touche == ECHAP)
+        close_window_echap();
     return 0;
 }
 
@@ -40,31 +42,28 @@ int key_release(int touche)
 int game_loop()
 {
 	if (s()->k.w)
-		printf("%d\n", s()->k.w);
+		key_w();
 	if (s()->k.s)
-        printf("%d\n", s()->k.s);
+        key_s();
 	if (s()->k.a)
-        printf("%d\n", s()->k.a);
+        key_a();
 	if (s()->k.d)
-        printf("%d\n", s()->k.d);
+        key_d();
 	if (s()->k.l)
-        printf("%d\n", s()->k.l);
+        key_L();
     if (s()->k.r)
-        printf("%d\n", s()->k.r);
+        key_R();
 
 	//redisplay();
     return (0);
 }
 
-int close_window_echap(int touche)
+int close_window_echap()
 {
-    if (touche == 65307)
-    {
-        mlx_destroy_window(s()->mlx, s()->win);
-        mlx_destroy_display(s()->mlx);//detruit la connexion a mlx
-        free(s()->mlx);
-        exit(0);
-    }
+    mlx_destroy_window(s()->mlx, s()->win);
+    mlx_destroy_display(s()->mlx);//detruit la connexion a mlx
+    free(s()->mlx);
+    exit(0);
     return 0;
 }
 
@@ -81,18 +80,13 @@ void open_window()
     s()->mlx = mlx_init();//connexion a la mlx
     if (s()->mlx == NULL)
         return;
-    s()->win = mlx_new_window(s()->mlx, WIDTH, HEIGHT, NAME);//creer le fenetre
+    s()->win = mlx_new_window(s()->mlx, WIDTH, HEIGHT, NAME);//creer la fenetre
     if (s()->win == NULL)
         return;
-    mlx_key_hook(s()->win, close_window_echap, s());
+    // mlx_key_hook(s()->win, close_window_echap, s());
     mlx_hook(s()->win, 17, 0L, close_window_cross, s());//17 = fermeture de la fenetre
-    mlx_hook(s()->win, 2, 1L<<0, key_press, s());
-    mlx_hook(s()->win, 3, 1L<<1, key_release, s());
+    mlx_hook(s()->win, 2, 1L<<0, key_press, s());//2 = keypress
+    mlx_hook(s()->win, 3, 1L<<1, key_release, s());//3 = keyrelease
     mlx_loop_hook(s()->mlx, game_loop, s());
     mlx_loop(s()->mlx);//la garder ouverte
 }
-
-// void    raycasting()
-// {
-//     open_window();
-// }

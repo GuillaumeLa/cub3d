@@ -2,6 +2,7 @@ NAME = cub3d
 
 SRC = main.c \
 	decals_parse.c \
+	deplacements.c \
 	display.c \
 	get_next_line.c \
 	get_next_line_utils.c \
