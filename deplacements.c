@@ -8,9 +8,9 @@ void    key_w()
 
     new_x = s()->p.x + s()->p.dir_x * speed;
     new_y = s()->p.y + s()->p.dir_y * speed;
-    if (s()->map.data[(int)s()->p.y][(int)new_x] != '1')//collision
+    if (s()->map.data[(int)s()->p.y][(int)new_x] != '1')//collision horizontale
         s()->p.x = new_x;
-    if (s()->map.data[(int)new_y][(int)s()->p.x] != '1')
+    if (s()->map.data[(int)new_y][(int)s()->p.x] != '1')//collision verticale
         s()->p.y = new_y;
 }
 
@@ -22,7 +22,7 @@ void    key_s()
 
     new_x = s()->p.x - s()->p.dir_x * speed;
     new_y = s()->p.y - s()->p.dir_y * speed;
-    if (s()->map.data[(int)s()->p.y][(int)new_x] != '1')//collision
+    if (s()->map.data[(int)s()->p.y][(int)new_x] != '1')
         s()->p.x = new_x;
     if (s()->map.data[(int)new_y][(int)s()->p.x] != '1')
         s()->p.y = new_y;
@@ -30,7 +30,7 @@ void    key_s()
 
 void    key_a()
 {
-    
+
 }
 
 void    key_d()
