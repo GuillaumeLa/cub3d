@@ -26,8 +26,8 @@ float corrected_distance(t_player player, float ray_x, float ray_y, float ray_an
 
 void ft_clear()
 {
-    int y;
-    int x;
+    int y = 0;
+    int x = 0;
     while(y < HEIGHT)
     {
         while(x < WIDTH)
@@ -83,7 +83,7 @@ int raytracing(t_config *game)
     float step = fov / WIDTH; 
     int i = 0;
 
-    ft_clear(s());
+    ft_clear();
     while (i < WIDTH)
     {
         print_line(player, game, angle, i);

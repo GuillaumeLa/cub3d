@@ -1,13 +1,17 @@
 NAME = cub3d
 
-SRC = main.c \
-	  get_next_line.c \
-	  get_next_line_utils.c \
-	  decals_parse.c \
-	  map_parse.c \
-	  parse.c\
-	  struct.c\
-	  draw_utils.c\
+SRC = decals_parse.c \
+	draw_utils.c\
+	get_next_line_utils.c \
+	get_next_line.c \
+	hook.c \
+	main.c \
+	map_parse.c \
+	parse.c\
+	rotations.c \
+	struct.c\
+	wasd.c \
+	  
 
 OBJ_DIR = objs
 LIBFT_DIR = includes/libft
