@@ -7,6 +7,7 @@ SRC = main.c \
 	  map_parse.c \
 	  parse.c\
 	  struct.c\
+	  draw_utils.c\
 
 OBJ_DIR = objs
 LIBFT_DIR = includes/libft

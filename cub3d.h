@@ -6,11 +6,17 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <math.h>
+# define WIDTH 800
+# define HEIGHT 400
+# define TILE_SIZE 20
+#define DEBUG 0
+
 
 typedef struct s_player {
     int x;
     int y;
-    char direction;
+    float angle;
 } t_player;
 
 typedef struct s_texture {
@@ -42,8 +48,14 @@ typedef struct s_decals {
 typedef struct s_config {
     void    *mlx;
     void    *win;
+    int     bpp;
+    int     size_line;
+    int     endian;
+    char    *pixel_data;
+    void   *img;
     t_map    map;
     t_decals decals;
+    t_player player;
 } t_config;
 int     handle_map(char *filename);
 int     parse_cub(char *filename);
@@ -53,4 +65,5 @@ int     handle_files(char *line , t_config *conf , int identifier);
 int     find_identifier(char *line);
 int     parse_identifier(char *line , int identifier ,t_config *conf);
 t_config	*s(void);
+int     raytracing(t_config *game);
 #endif

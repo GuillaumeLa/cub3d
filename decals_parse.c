@@ -41,7 +41,7 @@ int handle_rgb(int identifier , t_config *conf, char **rgb)
 	int number;
 	while(rgb[i])
 	{
-		if(ft_strlen(rgb[i]) > 3)
+		if(ft_strlen(rgb[i]) > 11)
 			return (write(2,"Incorrect format for RGB\n",25),0);
 		number = ft_atoi(rgb[i]);
 		if (number < 0 || number > 255)
