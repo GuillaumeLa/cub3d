@@ -1,7 +1,6 @@
 NAME = cub3d
 
-SRC = collision.c \
-	decals_parse.c \
+SRC = decals_parse.c \
 	draw_utils.c\
 	get_next_line_utils.c \
 	get_next_line.c \
