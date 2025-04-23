@@ -12,25 +12,36 @@ void init_player(void)
 			{
 				s()->p.x = x;
 				s()->p.y = y;
-				if (c == 'N') 
+				s()->p.X = x;
+				s()->p.Y = y;
+				if (c == 'N')
+				{
 					s()->p.angle = 3 * M_PI / 2;
+					s()->p.dirX = 0;
+					s()->p.dirY = -1;
+				}
 				if (c == 'S') 
+				{
 					s()->p.angle = M_PI / 2;
-				if (c == 'E') 
+					s()->p.dirX = 0;
+					s()->p.dirY = 1;
+				}
+				if (c == 'E') {
 					s()->p.angle = 0;
-				if (c == 'W') 
+					s()->p.dirX = 1;
+					s()->p.dirY = 0;
+				}
+				if (c == 'W') {
 					s()->p.angle = M_PI;
-				return;
+					s()->p.dirX = -1;
+					s()->p.dirY = 0;
+				}
 			}
 		}
 	}
-
-	s()->p.X = 5.0;
-	s()->p.Y = 5.0;
-	s()->p.dirX = 0.0;
-	s()->p.dirY = -1.0;
 	s()->p.planeX = 0.66;
 	s()->p.planeY = 0.0;
+	return;
 }
 void init_game()
 {
@@ -48,7 +59,7 @@ void init_game()
     mlx_hook(s()->win, 2, 1L<<0, key_press, NULL);//2 = keypress
     mlx_hook(s()->win, 3, 1L<<1, key_release, NULL);//3 = keyrelease
     mlx_loop_hook(s()->mlx, game_loop, NULL);
-	mlx_loop_hook(s()->mlx, raytracing, s());
+	// mlx_loop_hook(s()->mlx, raytracing, s());
     mlx_loop(s()->mlx);
 }
 

@@ -17,6 +17,8 @@ void    key_R()
     //changement de plan de la camera
     s()->p.planeX = s()->p.planeX * cos(-speed) - s()->p.planeY * sin(-speed);
     s()->p.planeY = old_planeX * sin(-speed) + s()->p.planeY * cos(-speed);
+
+    s()->p.angle += rot_speed;
 }
 
 void    key_L()
@@ -33,4 +35,6 @@ void    key_L()
     //changement de plan de la camera
     s()->p.planeX = s()->p.planeX * cos(speed) - s()->p.planeY * sin(speed);
     s()->p.planeY = old_planeX * sin(speed) + s()->p.planeY * cos(speed);
+    
+    s()->p.angle -= rot_speed;
 }

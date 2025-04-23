@@ -68,6 +68,6 @@ int game_loop()
     if (s()->k.r)
         key_R();
 
-	//redisplay();
+    raytracing(s());
     return (0);
 }

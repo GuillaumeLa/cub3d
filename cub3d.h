@@ -22,6 +22,7 @@
 # define L 65361
 # define R 65363
 # define speed 0.01
+# define rot_speed 0.01
 
 typedef struct s_player {
     int x;
@@ -113,7 +114,9 @@ int game_loop();
 
 //raycasting
 int     raytracing(t_config *game);
+int collision();
 
 //utils
 t_config	*s(void);
+
 #endif

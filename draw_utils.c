@@ -47,6 +47,7 @@ int has_touched_a_wall(float px, float py, t_config *game)
         return 1;
     return 0;
 }
+
 void print_line(t_player player, t_config *game, float ray_angle, int col)
 {
     float ray_x;
@@ -75,14 +76,25 @@ void print_line(t_player player, t_config *game, float ray_angle, int col)
 
 }
 
+void print_player()
+{
+	printf("\n");
+	printf("(X %f, Y %f)\n", s()->p.X, s()->p.Y);
+    printf("(dirX %f, dirY %f)\n", s()->p.dirX, s()->p.dirY);
+    printf("(planeX %f, planeY %f)\n", s()->p.planeX, s()->p.planeY);
+	printf("angle %f\n", s()->p.angle);
+    printf("\n");
+}
+
 int raytracing(t_config *game)
 {
-    t_player player = game->player;
+    t_player player = game->p;
     float fov = M_PI / 2;
     float angle = player.angle - fov / 2; 
     float step = fov / WIDTH; 
     int i = 0;
 
+    print_player();
     ft_clear();
     while (i < WIDTH)
     {
