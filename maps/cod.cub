@@ -1,0 +1,12 @@
+WE ./test_decals/greystone.xpm
+SO test_decals/mossy.xpm
+EA test_decals/eagle.xpm
+NO test_decals/eagle.xpm
+F 100,001,100
+C 200,200,200
+
+1111111
+1N00001
+1111101
+1000001
+1111111
